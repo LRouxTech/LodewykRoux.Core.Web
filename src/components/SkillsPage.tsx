@@ -1,162 +1,79 @@
 import {TopNavBar} from "./navigation/TopNavBar.tsx";
 import {BottomNavBar} from "./navigation/BottomNavBar.tsx";
+import {SkillCategoryCard} from "./card/SkillCategoryCard.tsx";
 
 export function SkillsPage() {
+
+    const skillCategories = [
+        {
+            id: 'languages',
+            title: 'Languages & Frameworks',
+            // You can pass an image URL string (e.g. "/icons/code.png") OR an inline SVG icon:
+            icon: (
+                <svg className="w-5 h-5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M10 20l4-16m4 4l4 4-4 4M6 16l-4-4 4-4"/>
+                </svg>
+            ),
+            skills: ['C#', '.NET Core', 'ASP.NET Core MVC', 'Dart', 'Flutter', 'SQL', 'MSSQL', 'MySQL', 'TypeScript', 'React'],
+        },
+        {
+            id: 'devops',
+            title: 'DevOps & Infrastructure',
+            icon: (
+                <svg className="w-5 h-5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M3 15a4 4 0 004 4h9a5 5 0 001-9.9 5 5 0 00-9.2-2.1A5.002 5.002 0 003 15z"/>
+                </svg>
+            ),
+            skills: ['Azure Repos', 'GitHub', 'GitLab', 'CI/CD (YAML)', 'Linux', 'Apache2', 'Docker', 'Cloudflare'],
+        },
+        {
+            id: 'testing',
+            title: 'Testing & Tools',
+            icon: (
+                <svg className="w-5 h-5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                </svg>
+            ),
+            skills: ['Unit Testing', 'Integration Testing', 'Git', 'NuGet'],
+        },
+        {
+            id: 'mobile-web',
+            title: 'Mobile & Web',
+            icon: (
+                <svg className="w-5 h-5 stroke-[2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round"
+                          d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"/>
+                </svg>
+            ),
+            skills: ['Flutter (iOS/Android)', 'Google Play', 'App Store'],
+        },
+    ];
+
     return (
-        <div className="min-h-screen bg-white text-slate-700 font-sans antialiased selection:bg-[#0e3d39] selection:text-white">
+        <div
+            className="min-h-screen bg-white text-slate-700 font-sans antialiased selection:bg-[#0e3d39] selection:text-white">
 
             <TopNavBar/>
-
-            <main className="max-w-6xl mx-auto px-6 md:px-16 py-12 md:py-16 space-y-20">
-
-                <section className="grid grid-cols-1 md:grid-cols-12 gap-10 items-center">
-                    <div className="md:col-span-7 space-y-6">
-            <span className="text-xs font-bold tracking-widest text-[#d99b26] uppercase">
-              Mid-Century Modern Professional
-            </span>
-
-                        <div className="space-y-2">
-                            <h1 className="text-4xl md:text-5xl font-extrabold text-[#0e3d39] tracking-tight">
-                                Lodewyk Roux
-                            </h1>
-                            <h2 className="text-xl md:text-2xl font-medium text-slate-500">
-                                Senior Full-Stack Developer
-                            </h2>
-                        </div>
-
-                        <p className="text-slate-600 leading-relaxed text-sm max-w-xl">
-                            Architecting robust solutions with a blend of functional minimalism and technical precision. Over 5 years of experience specializing in C#, .NET ecosystems, and streamlined DevOps practices to build scalable, timeless enterprise applications.
-                        </p>
-
-                        <div className="flex flex-wrap gap-4 pt-2">
-                            <a
-                                href="#experience"
-                                className="bg-[#0e3d39] text-white px-5 py-2.5 text-xs font-medium rounded-xs shadow-sm hover:bg-[#0a2e2b] transition-colors"
-                            >
-                                Explore Experience
-                            </a>
-                            <a
-                                href="#projects"
-                                className="border border-slate-300 bg-white text-[#0e3d39] px-5 py-2.5 text-xs font-medium rounded-xs shadow-sm hover:bg-slate-50 transition-colors"
-                            >
-                                View Projects
-                            </a>
-                        </div>
+                <section className="max-w-6xl mx-auto px-6 py-12 space-y-8">
+                    <div className="space-y-3">
+                        <h2 className="text-3xl font-bold text-[#0e3d39] tracking-tight">
+                            Technical Expertise
+                        </h2>
+                        <div className="w-16 h-1 bg-[#d99b26] rounded-full"/>
                     </div>
 
-                    <div className="md:col-span-5 flex justify-center relative">
-                        <div className="relative w-full max-w-md">
-                            <div className="absolute top-4 -right-4 w-full h-full bg-[#d5eeeb] rounded-xs -z-10" />
-
-                            <img
-                                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
-                                alt="Workspace Setup"
-                                className="w-full h-auto object-cover rounded-xs shadow-md border border-slate-100"
+                    <div className="space-y-4">
+                        {skillCategories.map((category) => (
+                            <SkillCategoryCard
+                                key={category.id}
+                                title={category.title}
+                                icon={category.icon}
+                                skills={category.skills}
                             />
-                        </div>
+                        ))}
                     </div>
                 </section>
-
-                <hr className="border-slate-100" />
-
-                <section id="experience" className="space-y-10">
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#0e3d39]">
-                        Professional Experience
-                    </h2>
-
-                    <div className="space-y-12">
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                            <div className="md:col-span-4 space-y-1">
-                                <h3 className="text-base font-bold text-[#0e3d39]">
-                                    Senior Software Developer
-                                </h3>
-                                <p className="text-xs font-semibold text-[#d99b26]">UPS</p>
-                                <p className="text-xs text-slate-400">May 2023 - Current</p>
-                            </div>
-                            <div className="md:col-span-8">
-                                <ul className="list-disc list-outside ml-4 text-xs text-slate-600 space-y-2.5 leading-relaxed">
-                                    <li>
-                                        Spearheaded the development and maintenance of scalable enterprise applications using C# and .NET core frameworks.
-                                    </li>
-                                    <li>
-                                        Architected automated CI/CD pipelines via Azure DevOps, reducing deployment times and improving code reliability across teams.
-                                    </li>
-                                    <li>
-                                        Mentored junior developers and established code quality standards, promoting a culture of technical excellence.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-
-                        <div className="grid grid-cols-1 md:grid-cols-12 gap-4">
-                            <div className="md:col-span-4 space-y-1">
-                                <h3 className="text-base font-bold text-[#0e3d39]">
-                                    Intermediate Software Developer
-                                </h3>
-                                <p className="text-xs font-semibold text-[#d99b26]">ThinkNinjas</p>
-                                <p className="text-xs text-slate-400">March 2021 - April 2023</p>
-                            </div>
-                            <div className="md:col-span-8">
-                                <ul className="list-disc list-outside ml-4 text-xs text-slate-600 space-y-2.5 leading-relaxed">
-                                    <li>
-                                        Engineered internal NuGet package pipelines to streamline shared infrastructure and standardize core utilities.
-                                    </li>
-                                    <li>
-                                        Developed complex ERP integration systems, facilitating seamless data flow between disparate enterprise modules.
-                                    </li>
-                                    <li>
-                                        Built cross-platform mobile applications using Flutter, delivering consistent user experiences on both iOS and Android.
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-
-                <hr className="border-slate-100" />
-
-                <section id="education" className="space-y-8">
-                    <h2 className="text-2xl md:text-3xl font-bold text-[#0e3d39]">
-                        Education
-                    </h2>
-
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                        <div className="border border-slate-100 bg-white p-6 rounded-xs shadow-xs space-y-3 relative">
-                            <div className="flex justify-between items-start">
-                                <span className="text-xs font-bold text-[#d99b26]">2024</span>
-                                <svg className="w-6 h-6 text-slate-300 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l9-5-9-5-9 5 9 5z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0112 20.055a11.952 11.952 0 01-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z" />
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 14v6.5" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-base font-bold text-[#0e3d39]">
-                                    Bachelor of Science Honours
-                                </h3>
-                                <p className="text-xs text-slate-500 mt-1">Computing</p>
-                                <p className="text-xs text-slate-400 mt-1">UNISA</p>
-                            </div>
-                        </div>
-
-                        <div className="border border-slate-100 bg-white p-6 rounded-xs shadow-xs space-y-3 relative">
-                            <div className="flex justify-between items-start">
-                                <span className="text-xs font-bold text-[#d99b26]">2020</span>
-                                <svg className="w-6 h-6 text-slate-300 stroke-[1.5]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path strokeLinecap="round" strokeLinejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
-                                </svg>
-                            </div>
-                            <div>
-                                <h3 className="text-base font-bold text-[#0e3d39]">
-                                    Bachelor of Science
-                                </h3>
-                                <p className="text-xs text-slate-500 mt-1">Information Technology</p>
-                                <p className="text-xs text-slate-400 mt-1">NWU</p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
-            </main>
 
             <BottomNavBar/>
         </div>
