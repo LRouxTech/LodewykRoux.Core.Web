@@ -3,8 +3,10 @@ import {BottomNavBar} from "./navigation/BottomNavBar.tsx";
 import {SkillCategoryCard} from "./card/SkillCategoryCard.tsx";
 import {UnitTestingIcon} from "./icons/UnitTestingIcon.tsx";
 import {IntegrationTestingIcon} from "./icons/IntegrationTestingIcon.tsx";
+import {usePageTimer} from "../service/hooks/usePageTime.ts";
 
 export function SkillsPage() {
+    usePageTimer('skills_page');
 
     const categories = [
         {

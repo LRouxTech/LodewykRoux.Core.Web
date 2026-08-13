@@ -1,6 +1,12 @@
 import {EmailCopyButton} from "../buttons/EmailCopyButton.tsx";
+import {faro} from "../../main.tsx";
 
 export function BottomNavBar() {
+
+    const trackClick = (eventName: string, attributes?: Record<string, string>) => {
+        faro.api.pushEvent(eventName, attributes);
+    };
+
     return (
         <footer className="bg-[#e4f6f4] py-6 px-6 md:px-16 mt-16">
             <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-slate-600">
@@ -18,10 +24,30 @@ export function BottomNavBar() {
                 </div>
 
                 <div className="flex items-center space-x-6 text-slate-600 font-medium">
-                    <a href="https://www.linkedin.com/in/lodewyk-roux/" target="_blank" rel="noreferrer" className="hover:text-[#0e3d39] transition-colors">
+                    <a href="https://www.linkedin.com/in/lodewyk-roux/"
+                       target="_blank"
+                       rel="noreferrer"
+                       onClick={() =>
+                           trackClick('click_external_link', {
+                               platform: 'linkedin',
+                               url: 'https://www.linkedin.com/in/lodewyk-roux/',
+                               section: 'footer_or_header',
+                           })
+                       }
+                       className="hover:text-[#0e3d39] transition-colors">
                         LinkedIn
                     </a>
-                    <a href="https://github.com/LodewykRoux" target="_blank" rel="noreferrer" className="hover:text-[#0e3d39] transition-colors">
+                    <a href="https://github.com/LodewykRoux"
+                       target="_blank"
+                       rel="noreferrer"
+                       onClick={() =>
+                           trackClick('click_external_link', {
+                               platform: 'github',
+                               url: 'https://github.com/LodewykRoux',
+                               section: 'footer_or_header',
+                           })
+                       }
+                       className="hover:text-[#0e3d39] transition-colors">
                         GitHub
                     </a>
                     <EmailCopyButton/>
