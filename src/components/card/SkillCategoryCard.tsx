@@ -1,45 +1,27 @@
-import React from 'react';
+import {type Skill, SkillItem } from './SkillItem';
 
 export interface SkillCategoryCardProps {
     title: string;
-    icon: React.ReactNode | string;
-    skills: string[];
+    skills: Skill[];
 }
 
-export function SkillCategoryCard({title, icon, skills}: SkillCategoryCardProps) {
+export function SkillCategoryCard({ title, skills }: SkillCategoryCardProps) {
     return (
-        <div className="bg-[#e4f4f2] border-t-4 border-[#0e3d39] p-6 shadow-2xs transition-all">
-            <div className="flex flex-col md:flex-row md:items-center justify-between gap-6">
+        <div className="bg-[#e4f4f2] border-t-4 border-[#0e3d39] p-6 md:p-8 shadow-2xs space-y-6">
 
-                <div className="flex items-center gap-3 md:w-1/3 shrink-0">
-                    {typeof icon === 'string' ? (
-                        <img
-                            src={icon}
-                            alt={`${title} icon`}
-                            className="w-5 h-5 object-contain"
-                        />
-                    ) : (
-                        <div className="text-[#d99b26] shrink-0">
-                            {icon}
-                        </div>
-                    )}
-                    <h3 className="text-base font-bold text-[#0e3d39]">
-                        {title}
-                    </h3>
-                </div>
-
-                <div className="flex flex-wrap items-center gap-2 md:w-2/3">
-                    {skills.map((skill, index) => (
-                        <span
-                            key={index}
-                            className="bg-white/90 text-[#0e3d39] text-xs font-mono font-medium px-3 py-1.5 rounded-2xs border border-[#0e3d39]/10 shadow-2xs hover:bg-white transition-colors"
-                        >
-                          {skill}
-                        </span>
-                    ))}
-                </div>
-
+            <div className="text-center space-y-2">
+                <h3 className="text-lg md:text-xl font-bold text-[#0e3d39]">
+                    {title}
+                </h3>
+                <div className="w-10 h-0.5 bg-[#d99b26] mx-auto rounded-full" />
             </div>
+
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-5 gap-4 md:gap-6 items-center justify-items-center">
+                {skills.map((skill, index) => (
+                    <SkillItem key={index} name={skill.name} icon={skill.icon} />
+                ))}
+            </div>
+
         </div>
     );
 }
