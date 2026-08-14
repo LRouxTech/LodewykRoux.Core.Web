@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import {ChevronDown, ChevronUp, ExternalLink} from 'lucide-react';
+import {faro} from "../../../main.tsx";
 
 export interface ProjectSubItem {
     label: string;
@@ -29,8 +30,12 @@ export interface TechItem {
     url?: string;
 }
 
+const trackClick = (eventName: string, attributes?: Record<string, string>) => {
+    faro.api.pushEvent(eventName, attributes);
+};
+
 export function ProjectCard({ project }: { project: Project }) {
-    const [isExpanded, setIsExpanded] = useState(project.defaultExpanded ?? true);
+    const [isExpanded, setIsExpanded] = useState(project.defaultExpanded ?? false);
     const [activeTabId, setActiveTabId] = useState<string>(
         project.sections?.[0]?.id ?? ''
     );
@@ -41,7 +46,15 @@ export function ProjectCard({ project }: { project: Project }) {
     return (
         <article className="border border-[#cbe3db] bg-[#f7fbf9] rounded-sm p-6 sm:p-8 mb-8 text-[#0c3832] transition-all">
             <div
-                onClick={() => hasSections && setIsExpanded((prev) => !prev)}
+                onClick={() => {
+                    if (hasSections) {
+                        setIsExpanded(!isExpanded);
+                    }
+                    trackClick('project_title', {
+                        target_page: 'projects',
+                        project: project.id,
+                    });
+                }}
                 className={`group flex flex-col md:flex-row md:items-start justify-between gap-4 ${
                     hasSections ? 'cursor-pointer select-none' : ''
                 }`}
@@ -102,6 +115,12 @@ export function ProjectCard({ project }: { project: Project }) {
                             type="button"
                             aria-label={isExpanded ? 'Collapse project' : 'Expand project'}
                             className="p-1.5 text-[#3c5e58] group-hover:text-[#0c3832] transition-colors rounded-xs hover:bg-[#ebf4f0]"
+                            onClick={() =>
+                                trackClick('project_section', {
+                                    target_page: 'projects',
+                                    section: project.id,
+                                })
+                            }
                         >
                             {isExpanded ? (
                                 <ChevronUp className="w-6 h-6 cursor-pointer" />
@@ -127,6 +146,11 @@ export function ProjectCard({ project }: { project: Project }) {
                                     onClick={(e) => {
                                         e.stopPropagation();
                                         setActiveTabId(section.id);
+                                        trackClick('project_section', {
+                                            target_page: 'projects',
+                                            project: project.id,
+                                            section: section.id,
+                                        });
                                     }}
                                     className={`cursor-pointer text-left text-xs sm:text-sm font-medium transition-all px-3 py-2.5 rounded-xs whitespace-nowrap md:whitespace-normal ${
                                         isActive
