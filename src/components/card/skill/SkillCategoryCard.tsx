@@ -1,4 +1,4 @@
-import {type Skill, SkillItem } from './SkillItem';
+import {type Skill, SkillItem } from './SkillItem.tsx';
 
 export interface SkillCategoryCardProps {
     title: string;
