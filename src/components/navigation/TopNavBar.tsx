@@ -1,6 +1,7 @@
 import {DownloadCvButton} from "../buttons/DownloadCVButton.tsx";
 import {Link} from "@tanstack/react-router";
 import {faro} from "../../main.tsx";
+import {Code2, FolderGit2, User} from 'lucide-react';
 
 export function TopNavBar() {
 
@@ -30,8 +31,10 @@ export function TopNavBar() {
                                 section: 'header_navigation',
                                 })
                             }
+                        className="flex items-center text-[#0e3d39] hover:opacity-80 transition-opacity p-1.5 sm:p-0"
                     >
-                        <span className="text-[#0e3d39] hover:opacity-80 transition-opacity">Portfolio</span>
+                        <User className="w-5 h-5 sm:hidden" />
+                        <span className="hidden sm:inline">Portfolio</span>
                     </Link>
 
                     <Link
@@ -42,8 +45,24 @@ export function TopNavBar() {
                                 section: 'header_navigation',
                             })
                         }
+                        className="flex items-center text-[#0e3d39] hover:opacity-80 transition-opacity p-1.5 sm:p-0"
                     >
-                        <span className="text-[#0e3d39] hover:opacity-80 transition-opacity">Skills & Projects</span>
+                        <Code2 className="w-5 h-5 sm:hidden" />
+                        <span className="hidden sm:inline">Skills</span>
+                    </Link>
+
+                    <Link
+                        to="/projects"
+                        onClick={() =>
+                            trackClick('click_navigation_link', {
+                                target_page: 'projects',
+                                section: 'header_navigation',
+                            })
+                        }
+                        className="flex items-center text-[#0e3d39] hover:opacity-80 transition-opacity p-1.5 sm:p-0"
+                    >
+                        <FolderGit2  className="w-5 h-5 sm:hidden" />
+                        <span className="hidden sm:inline">Projects</span>
                     </Link>
 
                     <DownloadCvButton/>

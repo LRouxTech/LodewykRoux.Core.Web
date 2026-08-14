@@ -26,7 +26,7 @@ export function DownloadCvButton() {
             disabled={isDownloading}
             className="cursor-pointer inline-flex items-center gap-2 bg-[#0e3d39] text-white px-4 py-2 text-xs font-semibold rounded-xs shadow-sm hover:bg-[#0a2e2b] disabled:opacity-60 disabled:cursor-not-allowed transition-colors"
         >
-            <span>{isDownloading ? 'Downloading...' : 'Download CV'}</span>
+            <span className="hidden sm:inline" >{isDownloading ? 'Downloading...' : 'Download CV'}</span>
 
             <svg
                 className={`w-3.5 h-3.5 ${isDownloading ? 'animate-bounce' : ''}`}
