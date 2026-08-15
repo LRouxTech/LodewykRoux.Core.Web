@@ -65,8 +65,8 @@ jobs:
             docker stop lodewykroux-web || true
             docker rm lodewykroux-web || true
             docker run -d \
-              --name lodewykroux-api \
+              --name lodewykroux-web \
               --restart always \
-              -p 5000:8080 \
+              -p 5001:8080 \
               -v /opt/lodewykroux-web/.env:/app/.env:ro \
               ghcr.io/${{ env.IMAGE_NAME_LOWER }}:latest
