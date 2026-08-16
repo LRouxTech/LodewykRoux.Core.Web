@@ -93,7 +93,7 @@ export function ProjectsPage() {
                     {
                         label: 'Asynchronous Background Workers',
                         description:
-                            'Implemented a resilient queueing system utilizing RabbitMQ and hosted .NET Core BackgroundServices to decouple immediate LMS responses from slow ERP processing, introducing automated retry mechanisms with exponential backoff.',
+                            'Implemented a resilient system utilizing .NET Core BackgroundServices to decouple immediate LMS responses from slow ERP processing, introducing automated retry mechanisms with exponential backoff.',
                     },
                     {
                         label: 'High Throughput API Design',
@@ -118,12 +118,19 @@ export function ProjectsPage() {
         title: 'Tally - supplier stock system',
         description:
             'A small mobile application for both Android and IOS to quickly enter the amount of produce pallets of different suppliers that are currently displayed on the market floors.',
-        quickTags: [{name: 'ThinkNinjas', url: 'https://www.thinkninjas.co.za/'}],
+        quickTags: [{name: 'ThinkNinjas', url: 'https://www.thinkninjas.co.za/'}, {name: 'ZZ2', url: 'https://www.zz2.co.za/'}],
         sections: [
             {
                 id: 'architecture-overview',
                 title: 'Architecture Overview',
                 summary: 'Flutter application with firebase as a NoSQL database storage, with cloud functions for automatic data harvesting.',
+                items: [
+                    {
+                        label: 'ZZ2',
+                        description:
+                            'The application was developed for ZZ2 floor runners to quickly enter the amounts of stock for competitors. ',
+                    },
+                ]
             },
             {
                 id: 'technical-depth',

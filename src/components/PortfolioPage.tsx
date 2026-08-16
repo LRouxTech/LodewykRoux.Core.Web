@@ -39,8 +39,8 @@ export function PortfolioPage() {
                             <div className="absolute top-4 -right-4 w-full h-full bg-[#d5eeeb] rounded-xs -z-10"/>
 
                             <img
-                                src="https://images.unsplash.com/photo-1517694712202-14dd9538aa97?auto=format&fit=crop&w=800&q=80"
-                                alt="Workspace Setup"
+                                src="/ProfessionalProfileLandscape.jpeg"
+                                alt="Personal photo"
                                 className="w-full h-auto object-cover rounded-xs shadow-md border border-slate-100"
                             />
                         </div>
