@@ -15,9 +15,9 @@ export default defineConfig({
   ],
     base: "/",
     server: {
-        port: 8080,
+        port: 5147,
         strictPort: true,
         host: true,
-        origin: "http://0.0.0.0:8080",
+        origin: "http://0.0.0.0:5147",
     },
 })

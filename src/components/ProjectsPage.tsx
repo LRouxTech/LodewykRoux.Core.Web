@@ -130,6 +130,9 @@ export function ProjectsPage() {
                         description:
                             'The application was developed for ZZ2 floor runners to quickly enter the amounts of stock for competitors. ',
                     },
+                ],
+                technologies: [
+                    {name: 'Tally', url: 'https://play.google.com/store/apps/details?id=za.co.thinkninjas.tally&hl=en_ZA'}
                 ]
             },
             {
@@ -167,7 +170,92 @@ export function ProjectsPage() {
                 ],
             },
         ],
-    }];
+    }, {
+        id: 'portfolio project',
+        category: 'Full-Stack Application',
+        title: 'Portfolio (This website!)',
+        description:
+            'This portfolio page is used to showcase my experience, skills and projects online.',
+        quickTags: [{name: 'Lodewyk Roux', url: 'https://graphs.lodewykroux.co.za/public-dashboards/c60ab806a0e74cbe8037fd858b190bc1?from=now-7d&to=now&timezone=browser'}],
+        sections: [
+            {
+                id: 'introduction',
+                title: 'Project Introduction',
+                summary: 'The idea behind the portfolio page is to have an online CV, in order to give someone a quick way to engage with me or to be able to see my CV and download my 1 page CV whenever I am not able to give it to them easily.',
+                items: [
+                    {
+                        label: 'Architecture',
+                        description:
+                            'This application uses React, a .Net Minimal Api\'s project with Azure Blob storage for the CV. It also uses Grafana alloy, Loki and Grafana dashboards.',
+                    },
+                ]
+            },
+            {
+                id: 'technical-depth',
+                title: 'Components',
+                summary:
+                    'The system needs to be able to handle a small amount of users, and needs to make sure that all of the events are captured.',
+                items: [
+                    {
+                        label: 'React',
+                        description:
+                            'The website uses react router, tailwind CSS and Grafana faro SDK.',
+                    },
+                    {
+                        label: 'Api',
+                        description: 'The Api is used to fetch the CV pdf file from Azure Blobs, using the Azure Blobs Microsoft package.',
+
+                    },
+                    {
+                        label: 'Grafana & Loki',
+                        description:
+                            'The Grafana faro SDK is implemented in the application on various interactions, and sends the data to the Grafana Alloy endpoint. ' +
+                            'The data is then sent to Loki, which acts as a datasource to the Grafana dashboard. ',
+                    },
+                    {
+                        label: 'Hosting',
+                        description:
+                            'Everything is hosted as docker images and hosted on a Linux private VM. Everything is deployed automatically with Github Actions.',
+                    }
+                ],
+                technologies: [
+                    { name: 'Linux'},
+                    { name: 'React', url: 'https://github.com/LodewykRoux/LodewykRoux.Core.Web/tree/main/src'},
+                    { name: '.NET' },
+                    { name: 'Loki' },
+                    { name: 'Grafana', url: 'https://graphs.lodewykroux.co.za/public-dashboards/c60ab806a0e74cbe8037fd858b190bc1?from=now-7d&to=now&timezone=browser' },
+                    { name: 'Docker'},
+                    { name: 'Github Actions'},
+                    { name: 'Azure Blobs', url: 'https://github.com/LodewykRoux/LodewykRoux.Core.Api/blob/main/LodewykRoux.Blobs.Api/BlobService.cs'}
+                ],
+            },
+        ],
+    }, {
+        id: 'exchange-rate-collector',
+        category: 'Cloud Application',
+        title: 'Exchange Rate collector',
+        description:
+            'A simple application to fetch the exchange rate data for all currencies, and stores it inside a cosmosDB instance.',
+        quickTags: [{name: 'Lodewyk Roux'}],
+        sections: [
+            {
+                id: 'introduction',
+                title: 'Project Introduction',
+                summary: 'In order to save on costs, fetching the exchange rate on demand from an external API, it is easier to query the API within the free usage limits, and to store that data. Then when an exchange rate needs to be calculated, it can be fetched from internal systems, rather than a costly external service.',
+                items: [
+                    {
+                        label: 'Architecture',
+                        description:
+                            'The application uses the Azure Functions to schedule the triggers, and uses cosmosDB to save the data. It uses an external API with an API key to authenticate. The application uses C#, together with the Microsoft packages for authentication in Azure, The Azure Functions worker settings and the Azure CosmosDB.',
+                    }
+                ],
+                technologies: [
+                    { name: 'CosmosDB', url: 'https://github.com/LodewykRoux/ExchangeRateCollector/blob/main/ExchangeRate/ExchangeRateDb.cs'},
+                    { name: 'Azure Functions', url: 'https://github.com/LodewykRoux/ExchangeRateCollector/blob/main/ExchangeRate/FetchExchangeRate.cs'}
+                ],
+            }
+        ],
+    },];
 
     return (
         <div
