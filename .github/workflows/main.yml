@@ -54,7 +54,7 @@ jobs:
           cache-from: type=gha
           cache-to: type=gha,mode=max
           build-args: |
-            VITE_API_URL=${{ secrets.VITE_API_URL }}
+            VITE_API_BASE_URL=${{ secrets.VITE_API_URL }}
             VITE_API_KEY=${{ secrets.VITE_API_KEY }}
 
       - name: Deploy to VM over SSH
@@ -71,4 +71,5 @@ jobs:
               --name lodewykroux-web \
               --restart always \
               -p 5001:3000 \
+              -v /opt/lodewykroux-web/.env:/app/.env:ro \
               ghcr.io/${{ env.IMAGE_NAME_LOWER }}:latest
