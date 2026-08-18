@@ -71,5 +71,4 @@ jobs:
               --name lodewykroux-web \
               --restart always \
               -p 5001:3000 \
-              -v /opt/lodewykroux-web/.env:/app/.env:ro \
               ghcr.io/${{ env.IMAGE_NAME_LOWER }}:latest

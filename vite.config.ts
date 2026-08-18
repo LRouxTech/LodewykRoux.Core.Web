@@ -13,11 +13,4 @@ export default defineConfig({
       tailwindcss(),
       react()
   ],
-    base: "/",
-    server: {
-        port: 5147,
-        strictPort: true,
-        host: true,
-        origin: "http://0.0.0.0:5147",
-    },
 })
