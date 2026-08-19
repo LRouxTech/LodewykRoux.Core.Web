@@ -60,8 +60,11 @@ export function ProjectsPage() {
                     }
                 ],
                 technologies: [
-                    { name: 'Distributed cache'},
-                    { name: 'Serilog', url: 'https://dotnet.microsoft.com/' },
+                    { name: '.NET 10' },
+                    { name: 'PostgreSQL' },
+                    { name: 'Redis'},
+                    { name: 'NuGet'},
+                    { name: 'Serilog'},
                     { name: 'Seq' },
                 ],
             },
@@ -102,8 +105,9 @@ export function ProjectsPage() {
                     },
                 ],
                 technologies: [
-                    { name: '.NET 6', url: 'https://dotnet.microsoft.com/' },
-                    { name: '.NET 6' },
+                    { name: '.NET 9', url: 'https://dotnet.microsoft.com/' },
+                    { name: 'MVC' },
+                    { name: 'MSSQL' },
                 ],
             },
             {

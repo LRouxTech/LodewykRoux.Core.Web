@@ -68,7 +68,6 @@ export function SkillsPage() {
             <TopNavBar/>
             <section className="max-w-6xl mx-auto px-6 py-12 space-y-10">
 
-                {/* CENTERED MAIN SECTION TITLE */}
                 <div className="text-center space-y-3">
                     <h2 className="text-3xl md:text-4xl font-bold text-[#0e3d39] tracking-tight">
                         Technical Expertise
@@ -76,7 +75,6 @@ export function SkillsPage() {
                     <div className="w-16 h-1 bg-[#d99b26] mx-auto rounded-full" />
                 </div>
 
-                {/* CATEGORY CARDS STACK */}
                 <div className="space-y-8">
                     {categories.map((category, index) => (
                         <SkillCategoryCard
