@@ -59,6 +59,15 @@ export function SkillsPage() {
                 { name: 'Android', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/android/android-original.svg' },
             ],
         },
+        {
+            title: 'Skills I am actively learning',
+            skills: [
+                { name: 'Kafka', icon:'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/apachekafka/apachekafka-original.svg' },
+                { name: 'Redis', icon: 'https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/redis/redis-original.svg' },
+                { name: 'Sharding', icon: '/sharding.png' },
+                { name: 'Consistent hashing', icon: '/hashing.svg' },
+            ],
+        },
     ];
 
     return (

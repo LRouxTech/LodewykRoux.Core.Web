@@ -19,6 +19,7 @@ export interface Project {
     id: string;
     category: string;
     title: string;
+    author: TechItem;
     description: string;
     quickTags?: TechItem[];
     sections?: ProjectSection[];
@@ -162,6 +163,31 @@ export function ProjectCard({ project }: { project: Project }) {
                                 </button>
                             );
                         })}
+                        {project.author && (
+                            <div className="mt-auto pt-4 border-t border-[#cbe3db]/50 flex items-center gap-2 text-xs text-gray-600">
+                                <span className="font-medium">Author:</span>
+                                {project.author.url ? (
+                                    <a
+                                        key={project.author.name}
+                                        href={project.author.url}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        onClick={(e) => e.stopPropagation()}
+                                        className="inline-flex items-center gap-1.5 bg-[#f0f7f4] hover:bg-[#e1f0e9] text-[#0c3832] hover:text-[#185e54] text-xs font-medium px-2.5 py-1 rounded-xs border border-[#cbe3db] underline decoration-[#d97706]/60 underline-offset-2 hover:decoration-[#d97706] transition-all"
+                                    >
+                                        <span>{project.author.name}</span>
+                                        <ExternalLink className="w-3 h-3 text-[#0c3832] shrink-0" />
+                                    </a>
+                                ) : (
+                                    <span
+                                        key={project.author.name}
+                                        className="border border-[#cbe3db] bg-white text-[#0c3832] text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1.5 rounded-xs"
+                                    >
+                                        {project.author.name}
+                                      </span>
+                                )}
+                            </div>
+                        )}
                     </nav>
 
                     <div className="bg-white p-5 sm:p-7 rounded-sm border border-[#e2eee9] shadow-xs">
