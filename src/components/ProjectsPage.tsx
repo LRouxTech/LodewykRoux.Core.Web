@@ -144,7 +144,7 @@ export function ProjectsPage() {
         author: {name: 'Lodewyk Roux - UFS', url: 'https://www.ufs.ac.za'},
         description:
             'A robust middleware solution bridging modern Learning Management Systems with legacy ERP infrastructure, designed for high throughput and fault tolerance.',
-        quickTags: [{name: 'LMS', url: 'https://www.lms.ufs.ac.za'}],
+        quickTags: [{name: 'LMS', url: 'https://lms.ufs.ac.za'}],
         sections: [
             {
                 id: 'architecture-overview',
