@@ -60,7 +60,7 @@ export function PortfolioPage() {
                                 <h3 className="text-base font-bold text-[#0e3d39]">
                                     Senior Software Developer
                                 </h3>
-                                <p className="text-xs font-semibold text-[#d99b26]">UPS</p>
+                                <p className="text-xs font-semibold text-[#d99b26]">UFS</p>
                                 <p className="text-xs text-slate-400">May 2025 - Current</p>
                                 <p className="text-xs text-slate-400">Hybrid, Bloemfontein</p>
                             </div>
